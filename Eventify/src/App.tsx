@@ -3,24 +3,32 @@ import "./App.css";
 
 import { Layout } from "./components/features/shared/Layout";
 import { Dashboard } from "./pages/Dashboard";
-import { Home } from "./pages/Home";
 import { Patient } from "./pages/Patient";
+import { SignUpForm } from "./components/features/sign-up/SignUpForm";
+import { SignInForm } from "./components/features/sign-in/SignInForm";
+import { useState } from "react";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        {/* Layout component is now a wrapper for all other components */}
-        <Route path="/" element={<Layout />}>
-          {/* Dashboard component */}
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="patient" element={<Patient />} />
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-          {/* Home component nested within Layout */}
-          <Route index element={<Home />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          {/* Trasy dostępne bez layoutu */}
+          <Route path="/sign-in" element={<SignInForm />} />
+          <Route path="/sign-up" element={<SignUpForm />} />
+
+          {/* Trasa z layoutem */}
+          <Route path="/" element={<Layout />}>
+            {/* Te trasy będą renderowane wewnątrz layoutu */}
+            <Route index element={<Dashboard />} />
+            <Route path="patient" element={<Patient />} />
+            {/* Strona domyślna dla layoutu */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
