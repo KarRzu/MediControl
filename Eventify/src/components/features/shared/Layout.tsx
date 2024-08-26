@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
-import { Patient } from "../../../pages/Patient";
+import { Patient } from "../../../pages/patient/Patient";
 
 export function Layout() {
   return (

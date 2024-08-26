@@ -3,7 +3,7 @@ import "./App.css";
 
 import { Layout } from "./components/features/shared/Layout";
 import { Dashboard } from "./pages/Dashboard";
-import { Patient } from "./pages/Patient";
+import { Patient } from "./pages/patient/Patient";
 import { SignUpForm } from "./components/features/sign-up/SignUpForm";
 import { SignInForm } from "./components/features/sign-in/SignInForm";
 import { useState } from "react";
